@@ -7,7 +7,6 @@ use Dingo\Api\Auth\Auth;
 use Dingo\Api\Dispatcher;
 use Dingo\Api\Http\Request;
 use Dingo\Api\Http\Response;
-use Dingo\Api\Console\Command;
 use Dingo\Api\Exception\Handler as ExceptionHandler;
 use Dingo\Api\Transformer\Factory as TransformerFactory;
 
@@ -60,7 +59,8 @@ class DingoServiceProvider extends ServiceProvider
 
         $this->registerTransformer();
 
-        $this->registerDocsCommand();
+        // Not using docs. Blueprint package is obsolete
+        //$this->registerDocsCommand();
 
         if (class_exists('Illuminate\Foundation\Application', false)) {
             $this->commands([
@@ -174,6 +174,7 @@ class DingoServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    /*
     protected function registerDocsCommand()
     {
         $this->app->singleton(\Dingo\Api\Console\Command\Docs::class, function ($app) {
@@ -187,5 +188,5 @@ class DingoServiceProvider extends ServiceProvider
         });
 
         $this->commands([\Dingo\Api\Console\Command\Docs::class]);
-    }
+    }*/
 }
